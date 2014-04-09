@@ -11,4 +11,10 @@ services:
   - mongodb
   - redis-server
 
-script: 'bundle exec rspec'
+install:
+  - "bundle install --deployment --path=${BUNDLE_PATH:-vendor/bundle}"
+  - "cd cli && bundle install --deployment --path=${BUNDLE_PATH:-vendor/bundle}"
+
+script:
+  - 'bundle exec rspec'
+  - 'cd cli && bundle exec rspec'
