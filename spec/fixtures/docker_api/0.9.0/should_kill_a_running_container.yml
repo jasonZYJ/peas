@@ -1,0 +1,189 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: unix:///var/run/docker.sock/v1.10/containers/create
+    body:
+      encoding: UTF-8
+      string: '{"Cmd":["/bin/bash","-c","/start web"],"Image":"peas","Env":"PORT=5000","ExposedPorts":{"5000":{}}}'
+    headers:
+      User-Agent:
+      - Swipely/Docker-API 1.10.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: 
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Apr 2014 16:44:49 GMT
+      Content-Length:
+      - '90'
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |
+        {"Id":"b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617","Warnings":null}
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 16:44:49 GMT
+- request:
+    method: post
+    uri: unix:///var/run/docker.sock/v1.10/containers/b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617/start
+    body:
+      encoding: UTF-8
+      string: '{"PublishAllPorts":"true"}'
+    headers:
+      User-Agent:
+      - Swipely/Docker-API 1.10.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 500
+      message: 
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 15 Apr 2014 16:44:49 GMT
+      Content-Length:
+      - '144'
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |
+        Cannot start container b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617: listen tcp 0.0.0.0:49153: bind: address already in use
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 16:44:49 GMT
+- request:
+    method: get
+    uri: unix:///var/run/docker.sock/v1.10/version
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Swipely/Docker-API 1.10.8
+      Content-Type:
+      - text/plain
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json
+      Job-Name:
+      - version
+      Date:
+      - Tue, 15 Apr 2014 16:44:49 GMT
+      Content-Length:
+      - '149'
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |
+        {"ApiVersion":"1.10","Arch":"amd64","GitCommit":"dc9c28f","GoVersion":"go1.2.1","KernelVersion":"3.11.0-19-generic","Os":"linux","Version":"0.10.0"}
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 16:44:49 GMT
+- request:
+    method: get
+    uri: unix:///var/run/docker.sock/v1.10/version
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Swipely/Docker-API 1.10.8
+      Content-Type:
+      - text/plain
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json
+      Job-Name:
+      - version
+      Date:
+      - Tue, 15 Apr 2014 16:44:49 GMT
+      Content-Length:
+      - '149'
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |
+        {"ApiVersion":"1.10","Arch":"amd64","GitCommit":"dc9c28f","GoVersion":"go1.2.1","KernelVersion":"3.11.0-19-generic","Os":"linux","Version":"0.10.0"}
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 16:44:49 GMT
+- request:
+    method: get
+    uri: unix:///var/run/docker.sock/v1.10/containers/b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Swipely/Docker-API 1.10.8
+      Content-Type:
+      - text/plain
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Apr 2014 16:45:08 GMT
+      Content-Length:
+      - '1413'
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"ID":"b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617","Created":"2014-04-15T16:44:49.770031235Z","Path":"/bin/bash","Args":["-c","/start
+        web"],"Config":{"Hostname":"b21ac8853fdd","Domainname":"","User":"","Memory":0,"MemorySwap":0,"CpuShares":0,"AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"PortSpecs":null,"ExposedPorts":{"5000":{}},"Tty":false,"OpenStdin":true,"StdinOnce":true,"Env":["PORT=5000","HOME=/","PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],"Cmd":["/bin/bash","-c","/start
+        web"],"Image":"peas","Volumes":null,"WorkingDir":"","Entrypoint":null,"NetworkDisabled":false,"OnBuild":null},"State":{"Running":false,"Pid":0,"ExitCode":0,"StartedAt":"0001-01-01T00:00:00Z","FinishedAt":"0001-01-01T00:00:00Z","Ghost":false},"Image":"44f86cc13cb3ceb144fd8c2714aebf748b5df6f1cb053f71f2ffa67f10efcbdd","NetworkSettings":{"IPAddress":"","IPPrefixLen":0,"Gateway":"","Bridge":"","PortMapping":null,"Ports":null},"ResolvConfPath":"/var/lib/docker/containers/b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617/resolv.conf","HostnamePath":"","HostsPath":"","Name":"/ecstatic_ptolemy","Driver":"aufs","ExecDriver":"native-0.1","Volumes":null,"VolumesRW":null,"HostConfig":{"Binds":null,"ContainerIDFile":"","LxcConf":null,"Privileged":false,"PortBindings":null,"Links":null,"PublishAllPorts":true,"Dns":null,"DnsSearch":null,"VolumesFrom":null}}'
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 16:45:08 GMT
+- request:
+    method: get
+    uri: unix:///var/run/docker.sock/v1.10/containers/b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Swipely/Docker-API 1.10.8
+      Content-Type:
+      - text/plain
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Apr 2014 16:45:08 GMT
+      Content-Length:
+      - '1413'
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"ID":"b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617","Created":"2014-04-15T16:44:49.770031235Z","Path":"/bin/bash","Args":["-c","/start
+        web"],"Config":{"Hostname":"b21ac8853fdd","Domainname":"","User":"","Memory":0,"MemorySwap":0,"CpuShares":0,"AttachStdin":false,"AttachStdout":false,"AttachStderr":false,"PortSpecs":null,"ExposedPorts":{"5000":{}},"Tty":false,"OpenStdin":true,"StdinOnce":true,"Env":["PORT=5000","HOME=/","PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],"Cmd":["/bin/bash","-c","/start
+        web"],"Image":"peas","Volumes":null,"WorkingDir":"","Entrypoint":null,"NetworkDisabled":false,"OnBuild":null},"State":{"Running":false,"Pid":0,"ExitCode":0,"StartedAt":"0001-01-01T00:00:00Z","FinishedAt":"0001-01-01T00:00:00Z","Ghost":false},"Image":"44f86cc13cb3ceb144fd8c2714aebf748b5df6f1cb053f71f2ffa67f10efcbdd","NetworkSettings":{"IPAddress":"","IPPrefixLen":0,"Gateway":"","Bridge":"","PortMapping":null,"Ports":null},"ResolvConfPath":"/var/lib/docker/containers/b21ac8853fdde0a1459ebb5e51c7b370e164575375164a6b524d2268dbe67617/resolv.conf","HostnamePath":"","HostsPath":"","Name":"/ecstatic_ptolemy","Driver":"aufs","ExecDriver":"native-0.1","Volumes":null,"VolumesRW":null,"HostConfig":{"Binds":null,"ContainerIDFile":"","LxcConf":null,"Privileged":false,"PortBindings":null,"Links":null,"PublishAllPorts":true,"Dns":null,"DnsSearch":null,"VolumesFrom":null}}'
+    http_version: 
+  recorded_at: Tue, 15 Apr 2014 16:45:08 GMT
+recorded_with: VCR 2.9.0

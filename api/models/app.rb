@@ -38,18 +38,15 @@ class App
   def scale processes
     # Destroy all existing containers
     peas.each do |pea|
-      docker_kill pea.docker_id
+      pea.kill
     end
     peas.destroy_all
     # Respawn all needed containers
     processes.each do |process_type, quantity|
       quantity.to_i.times do |i|
         broadcast "Scaling process '#{process_type}:#{i+1}'"
-        container = DockerHelper.run name, process_type
         Pea.create!(
           app: self,
-          port: container[:port],
-          docker_id: container[:id],
           process_type: process_type,
           host: 'localhost'
         )
@@ -57,8 +54,4 @@ class App
     end
   end
 
-  # Kill a running docker container
-  def docker_kill docker_id
-    sh "docker inspect #{docker_id} &> /dev/null && docker kill #{docker_id} > /dev/null"
-  end
 end
